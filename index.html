@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HiltonShoots | Professional Photography</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================================
+           1. CSS VARIABLES & BASE STYLES
+           ========================================================= */
+        :root {
+            --bg-dark: #1F1F1F;       /* Dark graphite */
+            --bg-light: #F8F8F8;      /* Off-white sections */
+            --text-light: #F5F5F5;    /* White smoke text */
+            --text-dark: #1F1F1F;     /* Dark text for light sections */
+            --btn-teal: #00CFCF;      /* Electric teal */
+            --btn-teal-hover: #00a6a6;
+            --highlight-rose: #E4BFAF;/* Subtle rose gold */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section {
+            padding: 80px 5%;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--btn-teal);
+            color: var(--bg-dark);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            padding: 12px 32px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-teal-hover);
+            transform: translateY(-2px);
+        }
+
+        /* =========================================================
+           2. HEADER & NAVIGATION
+           ========================================================= */
+        header {
+            background-color: var(--bg-dark);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--highlight-rose);
+        }
+
+        /* Mobile Menu Checkbox Hack (No JS) */
+        #menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight-rose);
+        }
+
+        /* =========================================================
+           3. HERO SECTION
+           ========================================================= */
+        .hero {
+            height: calc(100vh - 76px); /* Viewport height minus header */
+            background: linear-gradient(rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.7)), 
+                        url('https://via.placeholder.com/1920x1080/333333/F5F5F5?text=Hero+Image+Placeholder') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        /* --- NEW HERO TYPOGRAPHY --- */
+.hero-title {
+    font-size: 6rem; 
+    font-weight: 800; /* Thin 'Hilton' */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.hero-title span {
+    font-weight: 800; /* Bold 'Shoots' */
+    color: var(--highlight-rose);
+}
+
+.hero-subtitle {
+    letter-spacing: 8px;
+    color: #666;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Make it look good on mobile phones too */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+}
+
+
+        /* =========================================================
+           4. ABOUT SECTION
+           ========================================================= */
+        .about {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background-color: #ddd; /* Placeholder color */
+            border-left: 8px solid var(--highlight-rose);
+            background-image: url('images/about-image.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* =========================================================
+           5. SERVICES SECTION
+           ========================================================= */
+        .services {
+            background-color: var(--bg-dark);
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--highlight-rose);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: rgba(255,255,255,0.03);
+            padding: 40px 20px;
+            border-radius: 8px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            border-bottom-color: var(--btn-teal);
+            transform: translateY(-5px);
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .service-icon {
+            height: 80px;
+            width: 80px;
+            margin: 0 auto 20px auto;
+            background: url('https://via.placeholder.com/80/E4BFAF/1F1F1F?text=Icon') center/cover;
+            border-radius: 50%;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+            color: #bbb;
+        }
+
+        /* =========================================================
+           6. PORTFOLIO SECTION
+           ========================================================= */
+        .portfolio {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .portfolio h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            /* 3 columns as requested for a 3x4 grid */
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background-color: #ddd;
+            background-image: url('https://via.placeholder.com/400x300/CCCCCC/1F1F1F?text=Image');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(31, 31, 31, 0.85);
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--highlight-rose);
+            margin-bottom: 10px;
+        }
+
+        /* =========================================================
+           7. CONTACT SECTION
+           ========================================================= */
+        .contact {
+            background-color: var(--bg-dark);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--highlight-rose);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-light);
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--btn-teal);
+        }
+
+        .contact-visual {
+            background: url('https://via.placeholder.com/600x600/333333/F5F5F5?text=Map+or+Studio+Image') center/cover;
+            border-radius: 8px;
+            min-height: 400px;
+        }
+
+        /* =========================================================
+           8. FOOTER
+           ========================================================= */
+        footer {
+            background-color: #151515;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .social-links {
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: var(--highlight-rose);
+            font-weight: 600;
+        }
+
+        .social-links a:hover {
+            color: var(--btn-teal);
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        /* =========================================================
+           9. RESPONSIVE DESIGN (TABLET & MOBILE)
+           ========================================================= */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.8rem; }
+            .about-container, .contact-container { grid-template-columns: 1fr; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-visual { display: none; } /* Hide map on smaller screens to save space */
+        }
+
+        @media (max-width: 768px) {
+            .hamburger { display: block; }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 76px;
+                left: 0;
+                background-color: var(--bg-dark);
+                padding: 20px 0;
+                text-align: center;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            /* Toggle menu via checkbox */
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+            section { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Hilton<span>Shoots</span></div>
+        
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <input type="checkbox" id="menu-toggle">
+
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+    <h1 class="hero-title">Professional <span>Photography Services</span></h1>
+    <p class="hero-subtitle">Based in the West Midlands</p>
+    <a href="#contact" class="btn">Book a Session</a>
+</div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-container">
+            <div class="about-image">
+                </div>
+            <div class="about-text">
+                <h2>Portraits that Represent You</h2>
+                <p>Welcome to HiltonShoots. I specialise in modern headshots and portraits. I focus on capturing people at their best, creating images that reflect who they are and where they're going.</p>
+                <br>
+                <p>Whether you need professional headshots, personal portraits, or coverage for events, I ensure a seamless and comfortable experience from start to finish.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>My Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>Headshots</h3>
+                <p>Clean, crisp, and professional headshots designed to make your LinkedIn or acting portfolio stand out.</p>
+                <a href="#contact" class="btn">Book Now</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>Business & Personal Portraits</h3>
+                <p>Environmental portraits that showcase you in your element, perfect for professionals and individuals alike.</p>
+                <a href="#contact" class="btn">Book Now</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>Micro-Events</h3>
+                <p>Discreet and comprehensive coverage for private parties, small weddings, and corporate gatherings.</p>
+                <a href="#contact" class="btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <h2>Featured Work</h2>
+        <div class="portfolio-grid">
+            <!-- <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Editorial</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div> -->
+            <div class="portfolio-item" style="background-image: url('images/corporate.jpg'); background-size: cover; background-position: center 80%;">
+                <div class="portfolio-overlay">
+                    <h3>Corporate</h3>
+                    <p>On-Location</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Lifestyle</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Branding</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Event</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Portrait</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Fashion</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <!-- <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Musicians</h3>
+                    <p>Live Performance</p>
+                </div>
+            </div> -->
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Architecture</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Couples</h3>
+                    <p>Coming Soon</p>
+                </div>
+            </div>
+            <!-- <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Food</h3>
+                    <p>Culinary Art</p>
+                </div>
+            </div> -->
+            <!-- <div class="portfolio-item">
+                <div class="portfolio-overlay">
+                    <h3>Abstract</h3>
+                    <p>Textures & Light</p>
+                </div>
+            </div> -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Let's Plan Your Shoot</h2>
+                <form action="https://formsubmit.co/hchiveto@outlook.com" method="POST">
+    
+    <input type="text" name="_honey" style="display:none">
+    
+    <input type="hidden" name="_captcha" value="false">
+
+    <input type="hidden" name="_next" value="http://127.0.0.1:5500/thank-you.html">
+
+    <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+        <input type="email" name="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+        <input type="tel" name="phone" placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+        <textarea name="message" rows="5" placeholder="Let me know what you need..." required></textarea>
+    </div>
+    <button type="submit" class="btn">Send Message</button>
+</form>
+            </div>
+            <div class="contact-visual">
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/hiltonshoots/" target="_blank">Instagram</a> | 
+            <a href="#">LinkedIn</a>
+        </div>
+        <div class="footer-text">
+            &copy; 2026 HiltonShoots. All rights reserved. Designed for Professional Photography.
+        </div>
+    </footer>
+
+</body>
+</html>
