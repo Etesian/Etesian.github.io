@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         /* =========================================================
@@ -162,10 +163,10 @@
         .hero p {
         font-size: 1.2rem;
         color: var(--highlight-rose); /* Using your brand color makes it pop */
-        letter-spacing: 4px;
+        letter-spacing: 8px;
         text-transform: uppercase;
-        margin-top: 10px;
-        font-weight: 300;
+        margin-top: 15px;
+        font-weight: 200;
         }
 
         /* --- NEW HERO TYPOGRAPHY --- */
@@ -231,7 +232,7 @@
         .about-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 20px;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
@@ -243,6 +244,10 @@
             background-image: url('images/about-image.png');
             background-size: cover;
             background-position: center;
+        }
+        
+        .about-text {
+    margin-top: 40px; /* Pushes the text down away from the image */
         }
 
         .about-text h2 {
@@ -528,11 +533,13 @@
         }
 
         .social-links a {
-            display: inline-block;
-            margin: 0 10px;
-            color: var(--highlight-rose);
-            font-weight: 600;
-        }
+        display: inline-block;
+        margin: 0 15px;
+        color: var(--highlight-rose);
+        font-size: 1.6rem; /* This makes the icons a nice, readable size */
+        transition: all 0.3s ease; /* This makes the color swap to teal smooth */
+        text-decoration: none;
+    }
 
         .social-links a:hover {
             color: var(--btn-teal);
@@ -590,6 +597,19 @@
 .portfolio-item.coming-soon:hover p {
     animation: breathe 3s ease-in-out infinite;
 }
+
+/* --- SCROLL REVEAL ANIMATION --- */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease-out; 
+}
+
+.reveal-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
     </style>
 </head>
 <body>
@@ -619,9 +639,9 @@
 
     <section id="about" class="about">
         <div class="about-container">
-            <div class="about-image">
+            <div class="about-image reveal-up"></div>
                 </div>
-            <div class="about-text">
+            <div class="about-text reveal-up"></div>
                 <h2>Portraits that Represent You</h2>
                 <p>Welcome to HiltonShoots. I specialise in modern headshots and portraits. I focus on capturing people at their best, creating images that reflect who they are and where they're going.</p>
                 <br>
@@ -776,13 +796,26 @@
 
     <footer>
         <div class="social-links">
-            <a href="https://www.instagram.com/hiltonshoots/" target="_blank">Instagram</a> | 
-            <a href="#">LinkedIn</a>
+        <a href="https://www.instagram.com/hiltonshoots/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/company/hiltonshoots/" target="_blank"><i class="fab fa-linkedin"></i></a>
         </div>
         <div class="footer-text">
             &copy; 2026 HiltonShoots. All rights reserved. Designed for Professional Photography.
         </div>
     </footer>
+    
+    <script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    const hiddenElements = document.querySelectorAll('.reveal-up');
+    hiddenElements.forEach((el) => observer.observe(el));
+    </script>
 
 </body>
 </html>
