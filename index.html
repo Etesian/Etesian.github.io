@@ -286,6 +286,58 @@
             color: #bbb;
         }
 
+        /* --- SERVICE PRICING DETAILS --- */
+        .service-details {
+    margin: 20px 0;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle dark-mode divider */
+    text-align: center;
+        }      
+
+         .service-details .price {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--highlight-rose);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+        }
+
+        .service-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+        }
+
+        .service-details li {
+    font-size: 0.85rem;
+    color: #999;
+    margin-bottom: 8px;
+    font-weight: 300;
+        }
+
+        /* --- LUXURY SERVICE BUTTONS --- */
+        .service-card .btn {
+    background-color: #5bc0be; /* This does not switches it from teal to Rose Gold */
+    color: #1a1a1a; /* Dark text for better contrast on the lighter button */
+    padding: 12px 30px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    display: inline-block
+        }
+
+        .service-card .btn:hover {
+    background-color: #48a9a7; /* A slightly deeper rose for the hover state */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Adds depth on hover */
+        }
+
+
         /* =========================================================
            6. PORTFOLIO SECTION
            ========================================================= */
@@ -560,28 +612,54 @@
     </section>
 
     <section id="services" class="services">
-        <h2>My Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Headshots</h3>
-                <p>Clean, crisp, and professional headshots designed to make your LinkedIn or acting portfolio stand out.</p>
-                <a href="#contact" class="btn">Book Now</a>
+    <h2>My Services</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-icon"></div>
+            <h3>Headshots</h3>
+            <p>Clean, crisp, and professional headshots designed to make your profile stand out.</p>
+            <div class="service-details">
+                <span class="price">Starting at £85</span>
+                <ul>
+                    <li>30-Minute Studio/Location Session</li>
+                    <li>3 Fully Retouched Digital Images</li>
+                    <li>48-Hour Express Turnaround</li>
+                </ul>
             </div>
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Business & Personal Portraits</h3>
-                <p>Environmental portraits that showcase you in your element, perfect for professionals and individuals alike.</p>
-                <a href="#contact" class="btn">Book Now</a>
-            </div>
-            <div class="service-card">
-                <div class="service-icon"></div>
-                <h3>Micro-Events</h3>
-                <p>Discreet and comprehensive coverage for private parties, small weddings, and corporate gatherings.</p>
-                <a href="#contact" class="btn">Book Now</a>
-            </div>
+            <a href="#contact" class="btn">Book Now</a>
         </div>
-    </section>
+
+        <div class="service-card">
+            <div class="service-icon"></div>
+            <h3>Business & Personal Portraits</h3>
+            <p>Environmental portraits that showcase you in your element, perfect for branding.</p>
+            <div class="service-details">
+                <span class="price">Starting at £120</span>
+                <ul>
+                    <li>1-Hour On-Location Session</li>
+                    <li>10 High-Res Edited Images</li>
+                    <li>Personal Usage License</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn">Book Now</a>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon"></div>
+            <h3>Micro-Events</h3>
+            <p>Discreet and comprehensive coverage for private events and corporate gatherings.</p>
+            <div class="service-details">
+                <span class="price">Starting at £75 / hr</span>
+                <ul>
+                    <li>Minimum 2-Hour Booking</li>
+                    <li>Unlimited Edited Images</li>
+                    <li>Online Gallery for Guests</li>
+                </ul>
+            </div>
+            <a href="#contact" class="btn">Book Now</a>
+        </div>
+    </div>
+</section>
 
     <section id="portfolio" class="portfolio">
         <h2>Featured Work</h2>
