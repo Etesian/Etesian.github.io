@@ -230,29 +230,43 @@
         }
 
         .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;    /* Centers the blocks horizontally */
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;         /* Centers the container on the page */
+            padding: 40px 20px;
         }
 
         .about-image {
             width: 100%;
+            max-width: 800px;      /* Stops the image from getting too huge on your 16-inch screen */
             height: 400px;
             background-image: url('images/about-image.png');
             background-size: cover;
             background-position: center;
-        }
-        
+            border-radius: 8px;    /* Optional: adds a high-end softened corner */
+        }       
+
         .about-text {
-    margin-top: 40px; /* Pushes the text down away from the image */
-        }
+            width: 100%;
+            max-width: 800px;      /* Keeps the text lines from getting too long to read */
+            margin: 40px auto 0 auto; /* This means: 40px top, auto right, 0 bottom, auto left */
+            text-align: center;    /* THE KEY: This centers the H2 and the Paragraphs */
+        }       
 
         .about-text h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
+        }
+
+        .about-text h2 {
+            text-align: center !important;
+        }
+
+        .about-text p {
+            text-align: center !important;
         }
 
         /* =========================================================
@@ -610,6 +624,7 @@
     transform: translateY(0);
 }
 
+
     </style>
 </head>
 <body>
@@ -641,7 +656,7 @@
         <div class="about-container">
             <div class="about-image reveal-up"></div>
                 </div>
-            <div class="about-text reveal-up"></div>
+            <div class="about-text reveal-up" style="text-align: center;">
                 <h2>Portraits that Represent You</h2>
                 <p>Welcome to HiltonShoots. I specialise in modern headshots and portraits. I focus on capturing people at their best, creating images that reflect who they are and where they're going.</p>
                 <br>
