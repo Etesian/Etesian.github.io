@@ -134,14 +134,23 @@
            3. HERO SECTION
            ========================================================= */
         .hero {
-            height: calc(100vh - 76px); /* Viewport height minus header */
-            background: linear-gradient(rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.7)), 
-                        url('https://via.placeholder.com/1920x1080/333333/F5F5F5?text=Hero+Image+Placeholder') center/cover;
+            /* Use min-height instead of height to be more flexible */
+            min-height: calc(100vh - 76px); 
+    
+            /* I added a solid dark background color as a backup */
+            background: linear-gradient(rgba(47, 47, 47, 0.7), rgba(0, 0, 0, 0.7)),
+                url('images/your-actual-hero-image.jpg'), /* Update this to your real image! */
+                #1f1f1f; /* Fallback color if image fails to load */
+    
+             background-size: cover;
+            background-position: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 0 20px;
+            padding: 40px 20px; /* Increased padding for a better feel on big screens */
+            color: white;
         }
 
         .hero-content h1 {
@@ -149,6 +158,16 @@
             margin-bottom: 20px;
             color: var(--text-light);
         }
+
+        .hero p {
+        font-size: 1.2rem;
+        color: var(--highlight-rose); /* Using your brand color makes it pop */
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        font-weight: 300;
+        }
+
         /* --- NEW HERO TYPOGRAPHY --- */
 /* 1. First, the animation instructions */
 @keyframes fadeInUp {
