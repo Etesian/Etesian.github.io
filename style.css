@@ -1,176 +1,164 @@
 
-        /* =========================================================
-           1. CSS VARIABLES & BASE STYLES
-           ========================================================= */
-        :root {
-            --bg-dark: #1F1F1F;       /* Dark graphite */
-            --bg-light: #F8F8F8;      /* Off-white sections */
-            --text-light: #F5F5F5;    /* White smoke text */
-            --text-dark: #1F1F1F;     /* Dark text for light sections */
-            --btn-teal: #00CFCF;      /* Electric teal */
-            --btn-teal-hover: #00a6a6;
-            --highlight-rose: #E4BFAF;/* Subtle rose gold */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .logo {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        section {
-            padding: 80px 5%;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            background-color: var(--btn-teal);
-            color: var(--bg-dark);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            padding: 12px 32px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--btn-teal-hover);
-            transform: translateY(-2px);
-        }
-
-        /* =========================================================
-           2. HEADER & NAVIGATION
-           ========================================================= */
-        header {
-            background-color: var(--bg-dark);
-            padding: 20px 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-light);
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--highlight-rose);
-        }
-
-        /* Mobile Menu Checkbox Hack (No JS) */
-        #menu-toggle {
-            display: none;
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-light);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--highlight-rose);
-        }
-
-        /* =========================================================
-           3. HERO SECTION
-           ========================================================= */
-        .hero {
-            /* Use min-height instead of height to be more flexible */
-            min-height: calc(100vh - 76px); 
-    
-            /* I added a solid dark background color as a backup */
-            background: linear-gradient(rgba(34, 34, 34, 0.7), rgba(8, 8, 8, 0.7)),
-                url('images/your-actual-hero-image.jpg'), /* Update this to your real image! */
-                #1f1f1f; /* Fallback color if image fails to load */
-    
-             background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 40px 20px; /* Increased padding for a better feel on big screens */
-            color: white;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        .hero p {
-        font-size: 1.2rem;
-        color: var(--highlight-rose); /* Using your brand color makes it pop */
-        letter-spacing: 8px;
-        text-transform: uppercase;
-        margin-top: 15px;
-        font-weight: 200;
-        }
-
-        /* --- NEW HERO TYPOGRAPHY --- */
-/* 1. First, the animation instructions */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* =========================================================
+   1. CSS VARIABLES & BASE STYLES
+   ========================================================= */
+:root {
+    --bg-dark: #1F1F1F;       /* Dark graphite */
+    --bg-light: #F8F8F8;      /* Off-white sections */
+    --text-light: #F5F5F5;    /* White smoke text */
+    --text-dark: #1F1F1F;     /* Dark text for light sections */
+    --btn-teal: #00CFCF;      /* Electric teal */
+    --btn-teal-hover: #00a6a6;
+    --highlight-rose: #E4BFAF;/* Subtle rose gold */
 }
 
-/* 2. Then, the standard desktop styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+section {
+    padding: 80px 5%;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--btn-teal);
+    color: var(--bg-dark);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--btn-teal-hover);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   2. HEADER & NAVIGATION
+   ========================================================= */
+header {
+    background-color: var(--bg-dark);
+    padding: 20px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--highlight-rose);
+}
+
+/* Mobile Menu Checkbox Hack (No JS) */
+#menu-toggle {
+    display: none;
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--highlight-rose);
+}
+
+/* =========================================================
+   3. HERO SECTION
+   ========================================================= */
+.hero {
+    min-height: calc(100vh - 76px); 
+    
+    /* 🔴 FIXED: Removed the broken URL and kept the solid fallback colors */
+    background: linear-gradient(rgba(34, 34, 34, 0.7), rgba(8, 8, 8, 0.7)), #1f1f1f; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px; 
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--text-light);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--highlight-rose); 
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    font-weight: 200;
+}
+
+/* --- NEW HERO TYPOGRAPHY --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .hero-title {
     font-size: 6rem;
     font-weight: 800;
@@ -197,155 +185,145 @@
     animation: fadeInUp 1.2s ease-out 0.4s forwards;
 }
 
-/* 3. FINALLY, the mobile override (KEEP THIS) */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 3.5rem; /* Shrinks the text for phones */
-    }
-    .hero-subtitle {
-        letter-spacing: 4px; /* Tightens spacing for smaller screens */
-        font-size: 0.8rem;
-    }
+    .hero-title { font-size: 3.5rem; }
+    .hero-subtitle { letter-spacing: 4px; font-size: 0.8rem; }
 }
 
+/* =========================================================
+   4. ABOUT SECTION
+   ========================================================= */
+.about {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
 
-        /* =========================================================
-           4. ABOUT SECTION
-           ========================================================= */
-        .about {
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-        }
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    max-width: 1000px;
+    margin: 0 auto; 
+    padding: 40px 20px;
+}
 
-        .about-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;    /* Centers the blocks horizontally */
-            justify-content: center;
-            max-width: 1000px;
-            margin: 0 auto;         /* Centers the container on the page */
-            padding: 40px 20px;
-        }
+.about-image {
+    width: 100%;
+    max-width: 800px; 
+    height: 400px;
+    background-image: url('images/about-image.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px; 
+}       
 
-        .about-image {
-            width: 100%;
-            max-width: 800px;      /* Stops the image from getting too huge on your 16-inch screen */
-            height: 400px;
-            background-image: url('images/about-image.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;    /* Optional: adds a high-end softened corner */
-        }       
+.about-text {
+    width: 100%;
+    max-width: 800px; 
+    margin: 40px auto 0 auto; 
+    text-align: center; 
+}       
 
-        .about-text {
-            width: 100%;
-            max-width: 800px;      /* Keeps the text lines from getting too long to read */
-            margin: 40px auto 0 auto; /* This means: 40px top, auto right, 0 bottom, auto left */
-            text-align: center;    /* THE KEY: This centers the H2 and the Paragraphs */
-        }       
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center !important;
+}
 
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+.about-text p {
+    text-align: center !important;
+}
 
-        .about-text h2 {
-            text-align: center !important;
-        }
+/* =========================================================
+   5. SERVICES SECTION
+   ========================================================= */
+.services {
+    background-color: var(--bg-dark);
+    text-align: center;
+}
 
-        .about-text p {
-            text-align: center !important;
-        }
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--highlight-rose);
+}
 
-        /* =========================================================
-           5. SERVICES SECTION
-           ========================================================= */
-        .services {
-            background-color: var(--bg-dark);
-            text-align: center;
-        }
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .services h2 {
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-            color: var(--highlight-rose);
-        }
+.service-card {
+    background-color: rgba(255,255,255,0.03);
+    padding: 40px 20px;
+    border-radius: 8px;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.service-card:hover {
+    border-bottom-color: var(--btn-teal);
+    transform: translateY(-5px);
+    background-color: rgba(255,255,255,0.05);
+}
 
-        .service-card {
-            background-color: rgba(255,255,255,0.03);
-            padding: 40px 20px;
-            border-radius: 8px;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
+/* 🔴 FIXED: Removed the broken URL and added a subtle rose gold accent */
+.service-icon {
+    height: 80px;
+    width: 80px;
+    margin: 0 auto 20px auto;
+    background-color: var(--highlight-rose); 
+    border-radius: 50%;
+    opacity: 0.1; 
+}
 
-        .service-card:hover {
-            border-bottom-color: var(--btn-teal);
-            transform: translateY(-5px);
-            background-color: rgba(255,255,255,0.05);
-        }
+.service-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
 
-        .service-icon {
-            height: 80px;
-            width: 80px;
-            margin: 0 auto 20px auto;
-            background: url('https://via.placeholder.com/80/E4BFAF/1F1F1F?text=Icon') center/cover;
-            border-radius: 50%;
-        }
+.service-card p {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    color: #bbb;
+}
 
-        .service-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card p {
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-            color: #bbb;
-        }
-
-        /* --- SERVICE PRICING DETAILS --- */
-        .service-details {
+.service-details {
     margin: 20px 0;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle dark-mode divider */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); 
     text-align: center;
-        }      
+}       
 
-         .service-details .price {
+.service-details .price {
     display: block;
     font-size: 1.1rem;
     font-weight: 800;
     color: var(--highlight-rose);
     margin-bottom: 15px;
     letter-spacing: 1px;
-        }
+}
 
-        .service-details ul {
+.service-details ul {
     list-style: none;
     padding: 0;
     margin: 0;
-        }
+}
 
-        .service-details li {
+.service-details li {
     font-size: 0.85rem;
     color: #999;
     margin-bottom: 8px;
     font-weight: 300;
-        }
+}
 
-        /* --- LUXURY SERVICE BUTTONS --- */
-        .service-card .btn {
-    background-color: #5bc0be; /* This does not switches it from teal to Rose Gold */
-    color: #1a1a1a; /* Dark text for better contrast on the lighter button */
+.service-card .btn {
+    background-color: #5bc0be; 
+    color: #1a1a1a; 
     padding: 12px 30px;
     border-radius: 4px;
     text-decoration: none;
@@ -355,19 +333,17 @@
     font-size: 0.8rem;
     transition: all 0.3s ease;
     display: inline-block
-        }
+}
 
-        .service-card .btn:hover {
-    background-color: #48a9a7; /* A slightly deeper rose for the hover state */
-    transform: translateY(-3px); /* Subtle lift effect */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3); /* Adds depth on hover */
-        }
+.service-card .btn:hover {
+    background-color: #48a9a7; 
+    transform: translateY(-3px); 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3); 
+}
 
-
-        /* =========================================================
-           6. PORTFOLIO SECTION
-           ========================================================= */
-        /* The Shimmer Animation */
+/* =========================================================
+   6. PORTFOLIO SECTION
+   ========================================================= */
 @keyframes shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
@@ -386,7 +362,6 @@
 
 .portfolio-grid {
     display: grid;
-    /* 3 columns as requested for a 3x4 grid */
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     max-width: 1200px;
@@ -395,16 +370,14 @@
 
 .portfolio-item {
     position: relative;
-    height: 300px; /* Standardized height for all boxes */
+    height: 300px; 
     overflow: hidden;
     background-color: #ddd;
-    background-image: url('https://via.placeholder.com/400x300/CCCCCC/1F1F1F?text=Image');
     background-size: cover;
     background-position: center;
-    border-radius: 4px; /* Gives all boxes a slight, modern curve */
+    border-radius: 4px; 
 }
 
-/* --- THE SHIMMER FOR 'COMING SOON' ITEMS --- */
 .portfolio-item.coming-soon {
     background: #1a1a1a;
     background-image: linear-gradient(
@@ -417,190 +390,159 @@
     animation: shimmer 4s infinite linear;
 }
 
-/* 1. The Hidden Overlay Setup */
-/* This creates the dark transparent box and centers the text inside it, 
-   but keeps it completely invisible (opacity: 0) when the page loads. */
 .portfolio-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(31, 31, 31, 0.85); /* The dark tint */
-    color: var(--text-light); /* Makes text white */
+    background-color: rgba(31, 31, 31, 0.85); 
+    color: var(--text-light); 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Hidden by default for ALL boxes */
-    transition: opacity 0.3s ease; /* The smooth 0.3-second fade-in */
+    opacity: 0; 
+    transition: opacity 0.3s ease; 
 }
 
-/* 2. The Reveal Trigger */
-/* When the mouse hovers over ANY portfolio-item (real photo or shimmering 
-   'coming soon' box), change the overlay's opacity from 0 to 1 so it appears. */
 .portfolio-item:hover .portfolio-overlay {
     opacity: 1;
 }
 
-/* 3. The Category Title Styling */
-/* This specifically targets the <h3> tags (like "Corporate" or "Lifestyle") 
-   inside the overlay, making them Rose Gold and adding a little gap below them. */
 .portfolio-overlay h3 {
     color: var(--highlight-rose);
     margin-bottom: 10px;
 }
-/* ------------------------------------------ */
 
-.portfolio-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(31, 31, 31, 0.85);
-    color: var(--text-light);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0; /* Hidden by default until hover */
-    transition: opacity 0.3s ease;
-}
-
-/* The hover effect for your real photos (like Corporate) */
 .portfolio-item:not(.coming-soon):hover .portfolio-overlay {
     opacity: 1;
 }
 
-.portfolio-overlay h3 {
-    color: var(--highlight-rose);
-    margin-bottom: 10px;
+/* =========================================================
+   7. CONTACT SECTION
+   ========================================================= */
+.contact {
+    background-color: var(--bg-dark);
 }
 
-        /* =========================================================
-           7. CONTACT SECTION
-           ========================================================= */
-        .contact {
-            background-color: var(--bg-dark);
-        }
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.contact-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--highlight-rose);
+}
 
-        .contact-form h2 {
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            color: var(--highlight-rose);
-        }
+.form-group {
+    margin-bottom: 20px;
+}
 
-        .form-group {
-            margin-bottom: 20px;
-        }
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--text-light);
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+}
 
-        .form-group input, 
-        .form-group textarea {
-            width: 100%;
-            padding: 15px;
-            background-color: rgba(255,255,255,0.05);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-light);
-            border-radius: 4px;
-            font-family: 'Inter', sans-serif;
-        }
+.form-group input:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--btn-teal);
+}
 
-        .form-group input:focus, 
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--btn-teal);
-        }
+/* 🔴 FIXED: Removed the broken URL and added a solid dark-grey box */
+.contact-visual {
+    background-color: #2a2a2a; 
+    border-radius: 8px;
+    min-height: 400px;
+}
 
-        .contact-visual {
-            background: url('https://via.placeholder.com/600x600/333333/F5F5F5?text=Map+or+Studio+Image') center/cover;
-            border-radius: 8px;
-            min-height: 400px;
-        }
+/* =========================================================
+   8. FOOTER
+   ========================================================= */
+footer {
+    background-color: #151515;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
 
-        /* =========================================================
-           8. FOOTER
-           ========================================================= */
-        footer {
-            background-color: #151515;
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+.social-links {
+    margin-bottom: 20px;
+}
 
-        .social-links {
-            margin-bottom: 20px;
-        }
+.social-links a {
+    display: inline-block;
+    margin: 0 15px;
+    color: var(--highlight-rose);
+    font-size: 1.6rem; 
+    transition: all 0.3s ease; 
+    text-decoration: none;
+}
 
-        .social-links a {
-        display: inline-block;
-        margin: 0 15px;
-        color: var(--highlight-rose);
-        font-size: 1.6rem; /* This makes the icons a nice, readable size */
-        transition: all 0.3s ease; /* This makes the color swap to teal smooth */
-        text-decoration: none;
+.social-links a:hover {
+    color: var(--btn-teal);
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* =========================================================
+   9. RESPONSIVE DESIGN & ANIMATIONS
+   ========================================================= */
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 2.8rem; }
+    .about-container, .contact-container { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-visual { display: none; } 
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        background-color: var(--bg-dark);
+        padding: 20px 0;
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    #menu-toggle:checked ~ .nav-links {
+        display: flex;
     }
 
-        .social-links a:hover {
-            color: var(--btn-teal);
-        }
+    .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+    .hero-content h1 { font-size: 2.2rem; }
+    section { padding: 60px 5%; }
+}
 
-        .footer-text {
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        /* =========================================================
-           9. RESPONSIVE DESIGN (TABLET & MOBILE)
-           ========================================================= */
-        @media (max-width: 992px) {
-            .hero-content h1 { font-size: 2.8rem; }
-            .about-container, .contact-container { grid-template-columns: 1fr; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
-            .contact-visual { display: none; } /* Hide map on smaller screens to save space */
-        }
-
-        @media (max-width: 768px) {
-            .hamburger { display: block; }
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 76px;
-                left: 0;
-                background-color: var(--bg-dark);
-                padding: 20px 0;
-                text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-            }
-            
-            /* Toggle menu via checkbox */
-            #menu-toggle:checked ~ .nav-links {
-                display: flex;
-            }
-
-            .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
-            .hero-content h1 { font-size: 2.2rem; }
-            section { padding: 60px 5%; }
-        }
-    /* --- THE CONTINUOUS BREATHING ANIMATION --- */
 @keyframes breathe {
     0%   { opacity: 0.2; }
     50%  { opacity: 1; }
     100% { opacity: 0.2; }
 }
 
-/* Apply it ONLY to the coming-soon text when hovered */
 .portfolio-item.coming-soon:hover h3,
 .portfolio-item.coming-soon:hover p {
     animation: breathe 3s ease-in-out infinite;
 }
 
-/* --- SCROLL REVEAL ANIMATION --- */
 .reveal-up {
     opacity: 0;
     transform: translateY(40px);
